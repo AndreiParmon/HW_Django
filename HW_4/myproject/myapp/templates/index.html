@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+    {% block title %}
+        Сайт
+    {% endblock %}
+
+    {% block content %}
+        <p><a href="{% url 'index' %}">Главная</a></p>
+        <h1>Это основная страница для вывода информации о заказах</h1>
+        <h3>Выберите заказы для их отображения</h3>
+        <p><a href="{% url 'last_week' %}">Вывести информацию за прошедшую неделю</a></p>
+        <p><a href="{% url 'last_month' %}">Вывести информацию за прошедший месяц</a></p>
+        <p><a href="{% url 'last_year' %}">Вывести информацию за прошедший год</a></p>
+
+        <p>Информация будет изложена ниже:</p>
+        <table>
+            {% for key, value in orders.items %}
+                <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+            {% endfor %}
+        </table>
+
+    {% endblock %}
